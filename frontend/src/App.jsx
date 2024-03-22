@@ -1,17 +1,27 @@
-import { useState } from 'react'
-
-
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
 function App() {
 
 
   return (
     <>
-     <button class="btn">Button</button>
-     <button class="btn btn-primary">One</button>
-<button class="btn btn-secondary">Two</button>
-<button class="btn btn-accent btn-outline">Three</button>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
 
 export default App
+
